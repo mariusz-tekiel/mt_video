@@ -12,6 +12,36 @@
 			.form-control {
 				background-color: #f8f5f5;
 			}
+			.navbar-toggler {
+				border-color: rgba(0,0,0,.2);
+			}
+			.navbar .nav-link,
+			.navbar .navbar-brand {
+				color: #333 !important;
+			}
+			.navbar .nav-link:hover {
+				color: #000 !important;
+			}
+			@media (max-width: 991px) {
+				.container {
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+				.navbar {
+					padding: 6px 10px;
+				}
+				footer {
+					padding-left: 10px !important;
+					padding-right: 10px !important;
+				}
+				.navbar-collapse {
+					padding-top: 6px;
+				}
+				.navbar-collapse .btn {
+					margin: 4px 0;
+					width: 100%;
+				}
+			}
 		</style>
 
 		<link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
@@ -28,9 +58,9 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm mb-3 px-3">
 				<a class="navbar-brand font-weight-normal" href="{{ path('front') }}">Awesome Videos</a>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-					aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+				<button class="navbar-toggler" type="button" aria-label="Toggle navigation"
+					style="border:1px solid #333; padding:4px 10px;">
+					<span style="font-size:1.4rem; color:#333; line-height:1;">&#9776;</span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarContent">
@@ -107,6 +137,11 @@
 		<script>
 			$(function () {
 				$('[data-toggle="tooltip"]').tooltip();
+
+				// navbar toggle fallback
+				$('.navbar-toggler').on('click', function () {
+					$('#navbarContent').toggleClass('show');
+				});
 			});
 		</script>
 
