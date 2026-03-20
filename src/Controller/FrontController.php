@@ -17,4 +17,12 @@ class FrontController extends AbstractController
             'controller_name' => 'FrontController',
         ]);
     }
+
+    /**
+     * @Route("/signup", name="signup")
+     */
+    public function signup(): Response
+    {
+        return $this->render('front/signup.html.twig');
+    }
 }
